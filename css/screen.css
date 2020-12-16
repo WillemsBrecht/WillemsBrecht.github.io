@@ -1,0 +1,404 @@
+/* Fonts */
+
+@font-face {
+    font-family: "Roboto Regular";
+    src: url("../fonts/Roboto/Roboto-Regular.ttf") format("truetype")
+}
+
+@font-face {
+    font-family: "Roboto Medium";
+    src: url("../fonts/Roboto/Roboto-Medium.ttf") format("truetype")
+}
+
+/*------------------------------------*\
+#Variables
+\*------------------------------------*/
+
+:root {
+    /* colors */
+        /* PRIMARY */
+        --color-alpha: #BBE1FA;
+        --color-beta: #91c4e6;
+        --color-light: var(--color-neutral-light-x);
+
+        --global-text-color: var(--color-light);
+
+        /* ERROR */
+        --global-error-color: #e50000;
+        --global-error-boxshadow-color: #FF33334d;
+        --global-error-boxshadow-color-dark: #FF33337d;
+
+        /* NEUTRAL */
+        --color-neutral-light-x-transparant: #ffffff4d;
+        --color-neutral-light-x:  #ffffff;
+        --color-neutral-light: #c3c3c3;
+        --color-neutral: #a5a0a0;
+        --color-neutral-dark: #595757;
+        --color-neutral-dark-x: #1B262C;
+
+    /* BORDER */
+    --global-border-width: 0.2rem; /* 3px */
+    --global-border-color: #61a2cd;
+    --global-border-color-hover: var(--color-neutral-light-x-transparant);
+
+    /* BUTTON */
+    --global-button-background-color: #60A5D2;
+    --global-button-background-color-hover: #73afd6;
+    --global-button-color-active: #5494be;
+
+    /* INPUT */
+    --global-input-text-color: var(var(--color-neutral-dark));
+    --global-input-color-active: #73afd6;
+
+    /* WHITESPACE */
+    --global-baseline: 0.33rem;
+    --global-whitespace-xsm: var(--global-baseline); /*  0.33rem - 5px */
+    --global-whitespace-sm: calc(var(--global-baseline) * 2); /* 0.66rem - 10px */
+    --global-whitespace-md: calc(var(--global-baseline) * 3); /* 1rem - 15px */
+    --global-whitespace-lg: calc(var(--global-baseline) * 4); /* 1.33rem - 20px*/
+    --global-whitespace-xlg: calc(var(--global-baseline) * 5); /* 1.66rem - 25px */
+    --global-whitespace-xxlg: calc(var(--global-baseline) * 6); /* 2rem - 30px */
+
+    /* FONTS */
+    --global-fontsize-xlg: 1.66rem;
+    --global-fontsize-lg: 1.2rem;
+    --global-fontsize-md: 1rem;
+    
+}
+
+@media (prefers-color-scheme: dark){
+    :root{
+        --color-text-dark: var(--color-neutral);
+        --color-alpha-dark: var(--color-neutral-dark-x);
+        --color-beta-dark: #0b3551;
+        --global-input-color-dark: var(--color-alpha-dark);
+        --global-input-text-color-dark: var(--color-neutral-light);
+        --global-button-text-color: var(--global-input-text-color);
+        --global-error-boxshadow-color:  var(--global-error-boxshadow-color-dark);
+    }
+
+    .force, .speedright, .speedleft{
+        fill: var(--color-light);
+    }
+
+    .meteorite{
+        fill: var(--color-alpha-dark);
+    }
+}
+
+*,*:focus,*:hover{
+    outline:none;
+}
+
+html{
+    box-sizing: border-box;
+    background-color: var(--color-alpha-dark, var(--color-alpha));
+    color: var(--color-text-dark, var(--global-text-color));
+    font-family: 'Roboto Regular', sans-serif;
+    font-size: 0.9375rem;
+}
+
+/* RESET */
+.o-button-reset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+
+    /* inherit font & color from ancestor */
+    color: inherit;
+    font: inherit;
+
+    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+    line-height: normal;
+
+    /* Corrects font smoothing for webkit */
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+
+    /* Corrects inability to style clickable `input` types in iOS */
+    -webkit-appearance: none;
+}
+
+/* Container component */
+
+.c-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    height: 100vh;
+}
+
+/* Card component */
+
+.c-container__text{
+    margin: auto;
+}
+
+.c-container__card{
+    --local-card-border: 0 0 0 var(--global-border-width) var(--color-neutral-light-x-transparant);
+    background-color: var(--color-beta-dark, var(--color-beta));
+    width: 95%;
+    margin: auto;
+    margin-top: 3%;
+    border-radius: calc(var(--global-baseline) / 2);
+    box-shadow: var(--local-card-border);
+}
+
+.c-container__card h1{
+    font-size: var(--global-fontsize-xlg);
+    font-family: 'Roboto-Medium', sans-serif;
+    text-align: center;
+    padding-top: var(--global-whitespace-lg);
+    padding-bottom: calc(var(--global-whitespace-md)*3);
+    font-weight: bold;
+}
+
+/* Text */
+
+.c-text {
+    width: 80%;
+    line-height: calc(var(--global-baseline) * 5);
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: var(--global-whitespace-md);
+    font-size: var(--global-fontsize-lg);
+}
+
+.c-text p:first-child{
+    margin-bottom: var(--global-whitespace-md);
+}
+
+/* Logo */
+
+.c-logo{
+    --local-logo-width: calc(var(--global-whitespace-xxlg) + var(--global-whitespace-md));
+    --local-logo-height: var(--local-logo-width);
+    width: var(--local-logo-width);
+    height: var(--local-logo-height);
+}
+
+/* Form components*/
+.c-form{
+    --local-border-width: var(--global-border-width);
+    --local-button-radius: var(--global-whitespace-sm);
+    --local-button-padding: var(--global-whitespace-sm);
+    --local-button-width: calc(var(--global-whitespace-md) * 9);
+    --local-button-text-color: var(--global-text-color);
+    --local-input-height: var(--global-whitespace-xxlg);
+    --local-font-size: var(--global-fontsize-md);
+    --local-input-radius: var(--global-whitespace-md);
+    --local-border-color: var(--global-border-color);
+    --local-input-width: 80%;
+    margin-top: var(--global-whitespace-xxlg);
+    margin-bottom: var(--global-whitespace-lg);
+    padding-bottom: var(--global-whitespace-xxlg);
+}
+
+.c-formfield-label, .c-formfield-input, .c-formfield-button{
+    display: block;
+}
+
+.c-formfield-label{
+    margin-left: var(--local-label-margin-left);
+    margin-bottom: var(--global-whitespace-sm);
+    font-size: var(--local-label-font-size);
+}
+
+.c-form-formfield{
+    --local-label-margin-left: calc(var(--local-input-width)/8);
+    --local-label-font-size: var(--global-fontsize-lg);
+    --local-input-text-color: var(--global-input-text-color);
+    --local-input-backgroundcolor: var(--color-light);
+}
+
+.c-formfield-input{
+    --local-border-color-active: var(--global-input-color-active);
+    color: var(--global-input-text-color-dark, var(--color-neutral-dark-x));
+    background-color: var(--global-input-color-dark, var(--local-input-backgroundcolor));
+    width: var(--local-input-width);
+    font-size: var(--local-font-size);
+    font-family: 'Roboto Medium', sans-serif;
+
+    margin-right: auto;
+    margin-left: auto;
+    height: var(--local-input-height);
+    padding-left: var(--global-whitespace-md);
+    border: var(--local-border-width) solid var(--local-border-color);
+    border-radius: var(--local-input-radius);
+}
+
+.c-formfield-input:active, .c-formfield-input:focus{
+    border-color: var(--local-border-color-active);
+    box-shadow: 0 0 0 var(--global-border-width) var(--global-border-color-hover);
+}
+
+
+.c-formfield-button{
+    --local-button-color-active: var(--global-button-color-active);
+    width: var(--local-button-width);
+    padding: var(--local-button-padding);
+    border: var(--local-border-width) solid var(--local-border-color);
+    border-radius: var(--local-button-radius);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: var(--global-whitespace-md);
+    color: var(--global-button-text-color, var(--local-button-text-color));
+    background-color: var(--global-button-background-color);
+    font-size: var(--global-fontsize-md);
+}
+
+.c-formfield-button:hover{
+    background-color: var(--global-button-background-color-hover);
+}
+
+.c-formfield-button:active{
+    background-color: var(--local-button-color-active);
+    box-shadow: 0 0 0 var(--global-border-width) var(--global-border-color-hover);
+}
+
+.c-formfield-button:focus{
+    background-color: var(--global-button-background-color-hover);
+    box-shadow: 0 0 0 var(--global-border-width) var(--global-border-color-hover);
+}
+
+/* Image-Container */
+
+.c-container__image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Image */
+img{
+    width: 14rem;
+}
+
+
+/* ERRORS */
+.c-error{
+    --local-error-color: var(--global-error-color);
+    --local-error-boxshadow-color: var(--global-error-boxshadow-color);
+    --local-border-width: var(--global-border-width);
+    --local-font-weight: bold;
+    --local-error-text-size: var(--global-fontsize-md);
+    font-weight: var(--local-font-weight);
+    color: var(--local-error-color);
+    margin-top: var(--global-whitespace-md);
+    display: block;
+}
+
+.c-error-text{
+    display: block;
+    margin-top: var(--global-whitespace-xsm);
+    font-size: var(--local-error-text-size);
+}
+
+.c-error input{
+    border-color: var(--local-error-color);
+}
+
+.c-error input:hover, .c-error input:active, .c-error input:focus{
+    box-shadow: 0 0 0 var(--local-border-width) var(--local-error-boxshadow-color);
+}
+
+.c-error input:active, .c-error input:focus{
+    border-color: var(--local-error-color);
+}
+
+/*------------------------------------*\
+#MEDIA
+\*------------------------------------*/
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .c-form{
+        margin-bottom: var(--global-whitespace-xsm);
+        padding-bottom: var(--global-whitespace-sm);
+    }
+
+    .c-container__card{
+        --local-card--margin-left: var(--global-whitespace-xxlg);
+        margin-left: var(--local-card--margin-left);
+    }
+
+    .c-text{
+        line-height: var(--global-whitespace-xlg);
+        margin-right: auto;
+        margin-bottom: var(--global-whitespace-lg);
+        font-size: var(--global-fontsize-lg);
+    }
+
+    .c-error-text{
+        --local-error-font-size: var(--global-fontsize-md);
+        font-size: var(--local-error-font-size);
+    }
+
+    .c-formfield-input{
+        font-size: var(--global-fontsize-md);
+    }
+
+    .c-formfield-label{
+        font-size: var(--global-fontsize-lg);
+    }
+
+    img{
+        width: 16rem;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+    .c-form{
+        margin-bottom: var(--global-whitespace-lg);
+        padding-bottom: var(--global-whitespace-xlg);
+    }
+
+    img{
+        width: 20rem;
+    }
+
+    .c-text{
+        font-size: 1.33rem;
+        margin-bottom: calc(var(--global-whitespace-xxlg)*2);
+        line-height: var(--global-whitespace-xxlg);
+    }
+
+    .c-formfield-input{
+        height: calc(var(--global-whitespace-md) + var(--global-whitespace-xxlg));
+    }
+}
+
+/* Large devices (landscape tablets, desktops, 992px and up) */
+
+@media (min-width: 992px) {
+    .c-logo{
+        --local-logo-width: calc(var(--global-whitespace-xxlg) * 2);
+        --local-logo-height: var(--local-logo-width);        
+    }
+
+    .c-form{
+        --local-button-width: calc(var(--global-whitespace-md) * 12);
+    }
+
+    .c-text{
+        margin-bottom: 6rem;
+    }
+
+    .c-container__card h1 {
+        font-size: 2rem;
+        padding-bottom: calc(var(--global-whitespace-md)*4);
+    }
+
+    .c-formfield-button{
+        font-size: var(--global-fontsize-lg);
+        margin-top: var(--global-whitespace-lg);
+    }
+
+    img{
+        width: 22rem;
+    }
+}
