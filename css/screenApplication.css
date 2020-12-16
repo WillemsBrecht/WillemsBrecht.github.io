@@ -372,7 +372,7 @@ html{
 	justify-content: center;
 	align-items: center;
 	font-family: serif;
-	content: "\002600";
+	content: "\002600 ";
 	width: var(--global-whitespace-xxlg);
 	height: var(--global-whitespace-xxlg);
 	background-color: var(--color-neutral-light-x);
@@ -386,7 +386,7 @@ html{
 	font-family: serif;
 	background-color: var(--color-neutral-dark-xx);
 	color: var(--color-neutral-light-x);
-    	content: "\0000263";
+    	content: "\0000263 ";
 }
 
 .option-hidden:checked + .c-container__day-night-switch__custom__toggle .c-container__day-night-switch__custom__toggle-fake-input{
