@@ -206,7 +206,7 @@ html{
 }
 
 .mapboxgl-popup-content .marker_link:hover{
-    color: var(--color-neutral-dark-x);
+    color: var(--color-neutral-light-x);
 }
 
 .mapboxgl-popup-content .marker_link:active{
