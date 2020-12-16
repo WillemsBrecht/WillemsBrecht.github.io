@@ -386,7 +386,7 @@ html{
 	font-family: serif;
 	background-color: var(--color-neutral-dark-xx);
 	color: var(--color-neutral-light-x);
-	content: "\263E ︎ ";
+	content: "\263E   ";
 }
 
 .option-hidden:checked + .c-container__day-night-switch__custom__toggle .c-container__day-night-switch__custom__toggle-fake-input{
