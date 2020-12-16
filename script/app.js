@@ -228,9 +228,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Adds an eventlistener on the toggleswitch for day and night mode
     enableListeners();
 
-    /*initializeClient(55.676098, 12.568337);
+    initializeClient(55.676098, 12.568337);
     navigator.geolocation.getCurrentPosition(function(position) {
         document.querySelector(".content-body").innerHTML = "";
         initializeClient(position.coords.latitude, position.coords.longitude);
-    });*/
+    });
 });
