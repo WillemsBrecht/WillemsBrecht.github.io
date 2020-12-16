@@ -200,24 +200,24 @@ html{
 }
 
 /* Link in marker */
-.mapboxgl-marker .marker_link{
+.mapboxgl-popup-content .marker_link{
     text-decoration: none;
     color: var(--color-scrollbar);
 }
 
-.mapboxgl-marker .marker_link:hover{
+.mapboxgl-popup-content .marker_link:hover{
     color: var(--color-neutral-dark-x);
 }
 
-.mapboxgl-marker .marker_link:active{
+.mapboxgl-popup-content .marker_link:active{
     color: var(--color-beta);
 }
 
-.mapboxgl-marker .marker_link:focus{
+.mapboxgl-popup-content .marker_link:focus{
     color: var(--global-border-color);
 }
 
-.marker_link:visited{
+.mapboxgl-popup-content .marker_link:visited{
     color: var(--color-alpha-transparant);
 }
 
