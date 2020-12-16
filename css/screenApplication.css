@@ -200,20 +200,20 @@ html{
 }
 
 /* Link in marker */
-.marker_link{
+.mapboxgl-marker .marker_link{
     text-decoration: none;
     color: var(--color-scrollbar);
 }
 
-.marker_link:hover{
+.mapboxgl-marker .marker_link:hover{
     color: var(--color-neutral-dark-x);
 }
 
-.marker_link:active{
+.mapboxgl-marker .marker_link:active{
     color: var(--color-beta);
 }
 
-.marker_link:focus{
+.mapboxgl-marker .marker_link:focus{
     color: var(--global-border-color);
 }
 
